@@ -1,6 +1,6 @@
 # Live eCommerce - Teste para PHP
 
-[![TravisCI][icon-travisci]][link-circleci]
+[![TravisCI][icon-travisci]][link-travisci]
 [![Code Coverage][icon-codecov]][link-codecov]
 
 Este repositório contém uma implementação básica de coleções. Coleções armazenam dados pelo esquema de chave-valor, onde um valor é representado por uma chave.
