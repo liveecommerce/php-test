@@ -1,5 +1,8 @@
 # Live eCommerce - Teste para PHP
 
+[![TravisCI][icon-travisci]][link-circleci]
+[![Code Coverage][icon-codecov]][link-codecov]
+
 Este repositório contém uma implementação básica de coleções. Coleções armazenam dados pelo esquema de chave-valor, onde um valor é representado por uma chave.
 
 ## Teste
@@ -70,3 +73,9 @@ Para executar os testes, utilize o comando, na raiz do projeto:
 ```
 $ composer test
 ```
+
+[icon-travisci]: https://img.shields.io/travis/liveecommerce/php-test.svg?style=flat-square
+[icon-codecov]: https://img.shields.io/codecov/c/github/liveecommerce/php-test.svg?style=flat-square
+
+[link-travisci]: https://travis-ci.org/liveecommerce/php-test
+[link-codecov]: https://codecov.io/gh/liveecommerce/php-test
