@@ -20,5 +20,8 @@ script:
   - composer check
   - composer test
 
+after_success:
+  - bash < (curl -s https://codecov.io/bash)
+
 notifications:
   email: dev@livecommerce.com.br
