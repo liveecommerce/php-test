@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="rules">
+    <description>Coding standard</description>
+    <rule ref="PSR2"/>
+
+    <file>src</file>
+    <file>tests</file>
+</ruleset>
