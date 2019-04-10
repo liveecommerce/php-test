@@ -11,11 +11,15 @@ Este é um teste para a vaga de desenvolvedor de PHP, na Live eCommerce. Assumim
 
 ## Como fazer?
 
-1. Fazer um fork deste repositório
-2. Realizar as alterações necessárias pra finalizar as tarefas e requisitos do teste
-3. Abrir um pull request para este repositório, com um usuário com seu email pessoal
+1. Fazer um [fork](https://help.github.com/en/articles/fork-a-repo) deste repositório
+2. Vincular* sua conta do GitHub ao [TravisCI](https://travis-ci.org/), para build automatizada, com checagem de sintaxe e testes unitários ([Tutorial](https://hackernoon.com/continuous-integration-using-travis-on-github-1f7f2314b6b7))
+3. Vincular sua conta do GitHub ao [CodeCov](https://codecov.io/), para validação de cobertura de teste do código
+4. Adicionar a variável de ambiente do CodeCov nas configurações do TravisCI (CODECOV_TOKEN="\<codigo\>")
+5. Alterar os links do TravisCI e do CodeCov, que estão no final deste arquivo README, para refletir a url do seu repositório fork
+6. Realizar as alterações necessárias pra finalizar as tarefas e requisitos do teste
+7. Enviar um email com o link do seu repositório fork, seu CV e os dados de contato para jobs@liveecommerce.com.br
 
-Em caso de dúvidas, se oriente por [este guia](https://help.github.com/en/articles/fork-a-repo).
+\* Não é necessário configurar o TravisCI, uma vez que o arquivo de configuração já está na raiz do projeto. Só é necessário vincular a conta e habilitar as builds para o seu repositório.
 
 ## Tarefas
 
