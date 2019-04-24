@@ -21,11 +21,12 @@ interface CollectionInterface
     /**
      * Adds a value to the collection
      *
-     * @param string $index
-     * @param mixed $value
+     * @param string   $index
+     * @param mixed    $value
+     * @param int|null $expire
      * @return void
      */
-    public function set(string $index, $value);
+    public function set(string $index, $value, int $expire = null);
 
     /**
      * Checks whether the collection has the given index
