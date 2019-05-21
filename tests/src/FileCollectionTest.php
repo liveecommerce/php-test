@@ -108,6 +108,18 @@ class FileCollectionTest extends TestCase
 
     /**
      * @test
+     * @depends objectCanBeConstructed
+     */
+    public function inexistentIndexShouldReturnDefaultValue()
+    {
+        $collection = new FileCollection('files/test.txt', 'test');
+
+        $this->assertNull($collection->get('test1'));
+        $this->assertEquals('defaultValue', $collection->get('test1', 'defaultValue'));
+    }
+
+    /**
+     * @test
      * @depends collectionWithItemsShouldReturnValidCount
      */
     public function collectionCanBeCleaned()
