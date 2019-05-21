@@ -106,15 +106,7 @@ class FileCollection implements CollectionInterface
 
         return $this->files[$index]['value'];
     }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getAll() : array
-    {
-        return $this->files;
-    }
-
+    
     /**
      * {@inheritDoc}
      */
