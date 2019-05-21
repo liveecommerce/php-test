@@ -1,0 +1,9 @@
+version: '2'
+services: 
+  phpTrade: 
+    image: diegosilva19/phptest
+    container_name: phptest
+    ports: 
+      - "80:80"
+    volumes: 
+      - ".:/var/www/html"
