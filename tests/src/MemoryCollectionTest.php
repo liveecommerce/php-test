@@ -45,6 +45,18 @@ class MemoryCollectionTest extends TestCase
 
     /**
      * @test
+     * @depends dataCanBeAdded
+     */
+    public function dataCannotBeRetrievedAfterExpires()
+    {
+        $collection = new MemoryCollection();
+        $collection->set('index1', 'value', 2);
+        sleep(3);
+        $this->assertFalse($collection->has('index1'));
+    }
+
+    /**
+     * @test
      * @depends objectCanBeConstructed
      */
     public function inexistentIndexShouldReturnDefaultValue()

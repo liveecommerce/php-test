@@ -23,9 +23,10 @@ interface CollectionInterface
      *
      * @param string $index
      * @param mixed $value
+     * @param int $secondsToExpire
      * @return void
      */
-    public function set(string $index, $value);
+    public function set(string $index, $value, int $secondsToExpire = 5);
 
     /**
      * Checks whether the collection has the given index
@@ -41,13 +42,4 @@ interface CollectionInterface
      * @return integer
      */
     public function count(): int;
-
-    /**
-     * Cleans the collection
-     *
-     * Estou aqui para testar sua atenção. Remova-me.
-     *
-     * @return void
-     */
-    public function clean();
 }

@@ -33,15 +33,16 @@ class MemoryCollection implements CollectionInterface
             return $defaultValue;
         }
 
-        return $this->data[$index];
+        return $this->data[$index]['value'];
     }
 
     /**
      * {@inheritDoc}
      */
-    public function set(string $index, $value)
+    public function set(string $index, $value, $secondsToExpire = 5)
     {
-        $this->data[$index] = $value;
+
+        $this->data[$index] = ['value'=> $value, 'expires'=> time() + $secondsToExpire ];
     }
 
     /**
@@ -49,7 +50,7 @@ class MemoryCollection implements CollectionInterface
      */
     public function has(string $index)
     {
-        return array_key_exists($index, $this->data);
+        return array_key_exists($index, $this->data) && time() <= $this->data[$index]['expires'];
     }
 
     /**
@@ -57,7 +58,7 @@ class MemoryCollection implements CollectionInterface
      */
     public function count(): int
     {
-        return count($this->data) + 1;
+        return count($this->data);
     }
 
     /**
