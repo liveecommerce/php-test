@@ -23,7 +23,7 @@ class FileCollection implements CollectionInterface
      */
     public function __construct(string $completePath, string $index, int $secondsToExpire = 5)
     {
-        if (file_exists($completePath) !== false) {
+        if (file_exists($completePath) !== false && is_writable($completePath) && is_readable($completePath)) {
             $this->files[$index] = ['value'=> $completePath, 'expires'=> time() + $secondsToExpire];
         } else {
             throw new Exception('File Not Exists : ');
@@ -56,21 +56,12 @@ class FileCollection implements CollectionInterface
      */
     public function read($index) : string
     {
-        $content=  null;
-        try {
-            $fileResource = $this->open($index, 'r');
-            if (is_readable($this->get($index))) {
-                $allFileContent= '';
-                while (($line = fgets($fileResource)) !== false) {
-                    $allFileContent.= $line;
-                }
-                $content = $allFileContent;
-            } else {
-                throw new Exception('FileAccessException : do not have permission to read this file');
-            }
-        } catch (Exception $ex) {
+        $fileResource = $this->open($index, 'r');
+        $allFileContent= '';
+        while (($line = fgets($fileResource)) !== false) {
+            $allFileContent.= $line;
         }
-        return $content;
+        return $allFileContent;
     }
 
     /**
@@ -82,17 +73,10 @@ class FileCollection implements CollectionInterface
      */
     public function write($index, $stringToWrite) : bool
     {
-        try {
-            $fileResource = $this->open($index, 'w');
-            if (is_writable($this->get($index))) {
-                fwrite($fileResource, $stringToWrite);
-                fclose($fileResource);
-                return true;
-            }
-            throw new Exception('FileAccessException : do not have permission to write in this file.');
-        } catch (Exception $e) {
-            return false;
-        }
+        $fileResource = $this->open($index, 'w');
+        fwrite($fileResource, $stringToWrite);
+        fclose($fileResource);
+        return true;
     }
 
     /**
@@ -106,15 +90,7 @@ class FileCollection implements CollectionInterface
 
         return $this->files[$index]['value'];
     }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getAll() : array
-    {
-        return $this->files;
-    }
-
+    
     /**
      * {@inheritDoc}
      */
