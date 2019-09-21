@@ -62,6 +62,8 @@ class MemoryCollectionTest extends TestCase
     public function newCollectionShouldNotContainItems()
     {
         $collection = new MemoryCollection();
+
+
         $this->assertEquals(0, $collection->count());
     }
 
@@ -85,10 +87,11 @@ class MemoryCollectionTest extends TestCase
      */
     public function collectionCanBeCleaned()
     {
-        $collection = new MemoryCollection();
-        $collection->set('index', 'value');
-        $this->assertEquals(1, $collection->count());
-
+        $collection = new FileCollection('arquivo.json');
+        $collection->set('index', 'teste');
+        $this->assertEquals('teste', $collection->get('index'));
+        $this->assertGreaterThan(0, $collection->count());
+        
         $collection->clean();
         $this->assertEquals(0, $collection->count());
     }

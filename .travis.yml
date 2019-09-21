@@ -12,6 +12,8 @@ matrix:
 
 before-install:
   - composer self-update
+  - travis_retry composer self-update
+  - travis_retry composer install --no-interaction --prefer-source --dev
 
 install:
   - composer install --prefer-source --no-interaction --dev

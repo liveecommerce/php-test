@@ -7,22 +7,40 @@ namespace Live\Collection;
  *
  * @package Live\Collection\
  */
-class MemoryCollection implements CollectionInterface
+class FileCollection implements CollectionInterface
 {
-    /**
+
+     /**
      * Collection data
      *
      * @var array
      */
     protected $data;
-
+    protected $arquivoTexto;
+    protected $filename;
+    
     /**
      * Constructor
      */
-    public function __construct()
+    public function __construct(string $filename)
     {
-        $this->data = [];
+ 
+        $this->filename = $filename;
+        $this->data =[];
+        $fp = fopen($this->filename, 'r+');
+        //Pa
+        
+        if (filesize($this->filename) > 0) {
+            $stringArray = fread($fp, filesize($this->filename));
+            //Passo 3 - corrigir
+            $array = json_decode($stringArray, true);
+            //Passo 4
+
+            $this->data = $array;
+        }
+        fclose($fp);
     }
+
 
     /**
      * {@inheritDoc}
@@ -42,12 +60,16 @@ class MemoryCollection implements CollectionInterface
     public function set(string $index, $value)
     {
         $this->data[$index] = $value;
+        $fp = fopen($this->filename, 'w');
+        $json1 = json_encode($this->data);
+        fwrite($fp, $json1);
+        fclose($fp);
+        return $this->data;
     }
-
     /**
      * {@inheritDoc}
      */
-    public function has(string $index)
+    public function has(string $index): bool
     {
         return array_key_exists($index, $this->data);
     }
