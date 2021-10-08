@@ -41,13 +41,6 @@ interface CollectionInterface
      * @return integer
      */
     public function count(): int;
-
-    /**
-     * Cleans the collection
-     *
-     * Estou aqui para testar sua atenção. Remova-me.
-     *
-     * @return void
-     */
-    public function clean();
+    
+    
 }
