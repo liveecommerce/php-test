@@ -23,10 +23,10 @@ class FilleCollectionTest extends TestCase
     public function dataCanBeAdded()
     {
         $collection = new FileCollection('data/DataTest.json');
-        $collection->set('id1', ['', time()]);
-        $collection->set('id2', ['value2', time()]);
-        $collection->set('id3', ['value3', time()]);
-        $collection->set('id4', ['value4', time()]);
+        $collection->set('id1', ['', date('d-m-y')]);
+        $collection->set('id2', ['value2', date('d-m-y')]);
+        $collection->set('id3', ['value3', date('d-m-y')]);
+        $collection->set('id4', ['value4', date('d-m-y')]);
         $collection->set('id5', ['dataCanBeAdded']);
     }
     /**
@@ -59,7 +59,7 @@ class FilleCollectionTest extends TestCase
     public function addedItemShouldExistInCollection()
     {
         $collection = new FileCollection('data/DataTest.json');
-        $collection->set('id1', ['addedItemShouldExistInCollection', time()]);
+        $collection->set('id1', ['id1', date('d-m-y')]);
         $this->assertTrue($collection->has('id1'));
     }
     

@@ -35,17 +35,15 @@ class FileCollection implements CollectionInterface
         }
         fclose($file);
     }
-    
-    
+     
     /**
      * {@inheritDoc}
      */
     public function get(string $index, $defaultValue = null)
-    {
+    {     
         if (!$this->has($index)) {
             return $defaultValue;
         }
-        
         return $this->data[$index];
     }
     
@@ -66,7 +64,7 @@ class FileCollection implements CollectionInterface
      */
     public function has(string $index): bool
     {
-        return array_key_exists($index, $this->data) or end($this->data) <= time();
+        return array_key_exists($index, $this->data); 
     }
     
     /**
