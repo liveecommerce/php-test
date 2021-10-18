@@ -40,7 +40,7 @@ class FilleCollectionTest extends TestCase
         $collection->set('id1', $value);
         $this->assertEquals($value, $collection->get('id1'));
     }
-    
+
     /**
      * @test
      * @depends objectCanBeConstructed

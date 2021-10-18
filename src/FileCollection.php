@@ -8,7 +8,7 @@ namespace Live\Collection;
  * @package Live\Collection
  */
 class FileCollection implements CollectionInterface
-{    
+{
     /**
      * Collection data
      *
@@ -38,7 +38,7 @@ class FileCollection implements CollectionInterface
      * {@inheritDoc}
      */
     public function get(string $index, $defaultValue = null)
-    {     
+    {
         if (!$this->has($index)) {
             return $defaultValue;
         }
@@ -63,7 +63,7 @@ class FileCollection implements CollectionInterface
      */
     public function has(string $index): bool
     {
-        return array_key_exists($index, $this->data); 
+        return array_key_exists($index, $this->data);
     }
 
     /**
