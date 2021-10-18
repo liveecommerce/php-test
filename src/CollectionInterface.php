@@ -40,7 +40,5 @@ interface CollectionInterface
      *
      * @return integer
      */
-    public function count(): int;
-    
-    
+    public function count(): int; 
 }

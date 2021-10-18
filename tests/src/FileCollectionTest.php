@@ -69,7 +69,7 @@ class FilleCollectionTest extends TestCase
      */
     public function collectionWithItemsShouldReturnValidCount()
     {
-        $collection = new FileCollection('data/DataTest.json');        
+        $collection = new FileCollection('data/DataTest.json');
         $id = random_int(0, 99);
         $this->assertFalse($collection->has($id));
         $count =$collection->count();

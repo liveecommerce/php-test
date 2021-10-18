@@ -8,8 +8,7 @@ namespace Live\Collection;
  * @package Live\Collection
  */
 class FileCollection implements CollectionInterface
-{
-    
+{    
     /**
      * Collection data
      *
@@ -23,11 +22,10 @@ class FileCollection implements CollectionInterface
      */
     public function __construct(string $dataFile)
     {
-        
         $this->dataFile = $dataFile;
-
-        $file = fopen($this->dataFile, 'r+');
         
+        $file = fopen($this->dataFile, 'r+');
+
         if (filesize($this->dataFile) > 0) {
             $stringArray = fread($file, filesize($this->dataFile));
             $array = json_decode($stringArray, true);
@@ -59,6 +57,7 @@ class FileCollection implements CollectionInterface
         fclose($file);
         return $this->data;
     }
+
     /**
      * {@inheritDoc}
      */
@@ -66,7 +65,7 @@ class FileCollection implements CollectionInterface
     {
         return array_key_exists($index, $this->data); 
     }
-    
+
     /**
      * {@inheritDoc}
      */
